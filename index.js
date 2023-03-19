@@ -1,10 +1,9 @@
-const { request } = require("express");
 const express = require("express"); //导入了Node内置的网络服务器模块
 const app = express();
 const cors = require("cors");
 app.use(express.json()); //将请求的json数据转化为JavaScript对象，然后在调用路由处理程序之前将其附加到request对象的body属性
 app.use(cors()); //允许来自其他原点的请求
-
+app.use(express.static("build"));
 let notes = [
   {
     id: 1,
@@ -21,7 +20,7 @@ let notes = [
   {
     id: 3,
     content: "GET and POST are the most important methods of HTTP protocol",
-    date: "2022-05-30T19:20:14.298Z",
+    date: "2023-05-30T19:20:14.298Z",
     important: true,
   },
 ];
